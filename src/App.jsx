@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartColumn, faCalculator, faBinoculars, faUserPlus, faBars, faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 function Weather() {
   const [weather, setWeather] = useState(null)
@@ -22,11 +20,11 @@ function Weather() {
       .catch(err => console.error(err));
   })
 
-  const images = []
+  const images = ["https://media.npr.org/assets/img/2017/09/12/macaca_nigra_self-portrait-3e0070aa19a7fe36e802253048411a38f14a79f8-s1100-c50.jpg"]
 return (
   <>
   <div className='icon'>
-  <img className='icon-image' src={}></img>
+  <img className='icon-image' src={images[0]}></img>
   </div>
 
     <div className='info'>
