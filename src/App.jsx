@@ -1,5 +1,15 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSnowflake } from "@fortawesome/free-solid-svg-icons";
+
+import polarBear from './animal-images/melting.png'
+import snowyOwl from './animal-images/snowy-owl.png'
+import rabbit from './animal-images/rabbit.png'
+import arcticFox from './animal-images/arctic-fox.png'
+import walrus from './animal-images/walrus.png'
+import seal from './animal-images/seal.png'
+import deer from './animal-images/deer.png'
 
 function Weather() {
   const [weather, setWeather] = useState(null)
@@ -14,29 +24,52 @@ function Weather() {
       setWeather(returnData);
     }
 
-    fetch('http://api.weatherapi.com/v1/current.json?key=9d5d9681b406421685723701230601&q=London')
+    fetch('http://api.weatherapi.com/v1/current.json?key=9d5d9681b406421685723701230601&q=Burlington')
       .then(response => response.json())
       .then(response => setData(response))
       .catch(err => console.error(err));
   })
 
-  const images = ["https://media.npr.org/assets/img/2017/09/12/macaca_nigra_self-portrait-3e0070aa19a7fe36e802253048411a38f14a79f8-s1100-c50.jpg"]
-return (
-  <>
-  <div className='icon'>
-  <img className='icon-image' src={images[0]}></img>
-  </div>
+  const icons = [
+    polarBear,
+    snowyOwl,
+    rabbit,
+    arcticFox,
+    walrus,
+    seal,
+    deer,
+    walrus,
+    walrus,
+    walrus,
+    walrus,
+    walrus,
+    walrus,
+    walrus,
+    walrus,
+    walrus,
+    walrus,
+    walrus,
+    walrus,
+    walrus,
+  ]
 
-    <div className='info'>
+  return (
+    <>
       <div>
-        Location: {weather ? weather[0]: ""}
+        {(weather) &&
+        <img className='icon-image' src={icons[Math.round(weather[1])]}/>
+      }
       </div>
-      <div>
-        Temperatue: {weather ? weather[1]: ""}
+      <div className='info'>
+        <div>
+          Location: {weather ? weather[0] : ""}
+        </div>
+        <div>
+          Temperatue: {weather ? weather[1] : ""}℃
+        </div>
       </div>
-    </div>
-  </>
-)
+    </>
+  )
 }
 
 export default Weather
