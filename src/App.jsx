@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSnowflake } from "@fortawesome/free-solid-svg-icons";
 
 import polarBear from './animal-images/melting.png'
 import snowyOwl from './animal-images/snowy-owl.png'
@@ -10,6 +8,7 @@ import arcticFox from './animal-images/arctic-fox.png'
 import walrus from './animal-images/walrus.png'
 import seal from './animal-images/seal.png'
 import deer from './animal-images/deer.png'
+import bear from './animal-images/polar-bear.png'
 
 function Weather() {
   const [weather, setWeather] = useState(null)
@@ -38,8 +37,7 @@ function Weather() {
     walrus,
     seal,
     deer,
-    walrus,
-    walrus,
+    bear,
     walrus,
     walrus,
     walrus,
@@ -57,7 +55,7 @@ function Weather() {
     <>
       <div>
         {(weather) &&
-        <img className='icon-image' src={icons[Math.round(weather[1])]}/>
+        <img className='icon-image' src={icons[Math.round(7)]}/>
       }
       </div>
       <div className='info'>
